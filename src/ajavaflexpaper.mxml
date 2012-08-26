@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+				xmlns:fp="com.devaldi.controls.flexpaper.*"
+				xmlns:mx="library://ns.adobe.com/flex/mx" layout="absolute" minWidth="660" minHeight="553"
+				applicationComplete="initApp();">
+
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import mx.controls.Alert;	
+			[Bindable]
+			public var _SwfFile:String = "";//SWF文件路径
+			[Bindable]
+			public var _ProgressiveLoading:Boolean = false;
+			
+			private function initApp():void
+			{
+				_SwfFile = Application.application.parameters['SwfFile'];
+				_ProgressiveLoading = Application.application.parameters['ProgressiveLoading'];
+				
+			}
+		]]>
+	</fx:Script>
+
+	<fp:FlexPaperViewer id="FlexPaper"
+						SwfFile="{_SwfFile}"
+						ProgressiveLoading = "{_ProgressiveLoading}"
+						ReadOnly="true"
+						 />
+</mx:Application>
