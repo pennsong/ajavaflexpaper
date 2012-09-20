@@ -560,7 +560,7 @@ package com.devaldi.controls.flexpaper
 		}	
 		
 		public function getSwfFilePerPage(swfFile:String, page:int):String{
-			var fileName:String = swfFile;
+			var fileName:String = swfFile+'/'+(new Date()).getTime();
 			var map:String = (fileName.substr(fileName.indexOf("[*,"),fileName.indexOf("]")-fileName.indexOf("[*,")+1));
 			var padding:int = parseInt(map.substr(map.indexOf(",")+1,map.indexOf("]")-2));
 			fileName = TextMapUtil.StringReplaceAll(fileName,map,padString(page.toString(),padding,"0"));
